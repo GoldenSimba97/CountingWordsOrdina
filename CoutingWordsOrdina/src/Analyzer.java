@@ -12,7 +12,7 @@ public class Analyzer implements WordFrequencyAnalyzer {
 	static Map<String, Integer> pairList = new HashMap<>();
 
 	public static void main(String[] args) {
-		String inputText = "This is a text text TExt TEXT";
+		String inputText = "This is a text text TExt. TEXT";
 		inputText = inputText.toLowerCase();
 		
 		// Create a class of itself
@@ -75,7 +75,7 @@ public class Analyzer implements WordFrequencyAnalyzer {
 	
 	public void getWordFrequencyArrays(String text) {
 	    
-	    String[] splitter = text.split("\\s+");
+	    String[] splitter = text.split("([.,!?:;'\"-]|\\s)+");
 		for(int i = 0; i < splitter.length; i++) {
 			if(words.contains(splitter[i])) {
 				int idx = words.indexOf(splitter[i]);
